@@ -3,13 +3,13 @@ import { DECREMENT, INCREASE, INCREMENT, TOGGLE } from "./actionTypes";
 
 const reducer = (state, action) => {
   if (action.type === INCREMENT) {
-    const newCount = ++state.count.value;
+    const newCount = state.count.value + 1;
     return { count: { ...state.count, value: newCount } };
   } else if (action.type === INCREASE) {
     const newCount = state.count.value + action.payload;
     return { count: { ...state.count, value: newCount } };
   } else if (action.type === DECREMENT) {
-    const newCount = --state.count.value;
+    const newCount = state.count.value - 1;
     return { count: { ...state.count, value: newCount } };
   } else if (action.type === TOGGLE) {
     return { count: { ...state.count, open: !state.count.open } };
